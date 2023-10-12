@@ -1,0 +1,9 @@
+{
+	"name": "Sri21ADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "dd9c1347-d2bd-4a3a-b7fd-b8e509e57358",
+		"tenantId": "eeaf43f8-5c50-4ae1-8819-e76f88766c1f"
+	}
+}

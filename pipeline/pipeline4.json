@@ -1,0 +1,146 @@
+{
+	"name": "pipeline4",
+	"properties": {
+		"activities": [
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@bool(pipeline().parameters.CopytoOutput1)",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Copy data2",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "BinarySource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true
+									},
+									"formatSettings": {
+										"type": "BinaryReadSettings"
+									}
+								},
+								"sink": {
+									"type": "BinarySink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									}
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "inputdatasetlrn",
+									"type": "DatasetReference",
+									"parameters": {
+										"SFN": "SampleFile2.txt"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ouputDSLrn",
+									"type": "DatasetReference",
+									"parameters": {
+										"DFolName": {
+											"value": "@pipeline().parameters.Ouput2Folder",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "BinarySource",
+									"storeSettings": {
+										"type": "AzureBlobStorageReadSettings",
+										"recursive": true
+									},
+									"formatSettings": {
+										"type": "BinaryReadSettings"
+									}
+								},
+								"sink": {
+									"type": "BinarySink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									}
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "inputdatasetlrn",
+									"type": "DatasetReference",
+									"parameters": {
+										"SFN": "SampleFile2.txt"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ouputDSLrn",
+									"type": "DatasetReference",
+									"parameters": {
+										"DFolName": {
+											"value": "@pipeline().parameters.Ouput1Folder",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"CopytoOutput1": {
+				"type": "string",
+				"defaultValue": "true"
+			},
+			"Ouput1Folder": {
+				"type": "string",
+				"defaultValue": "ouput1"
+			},
+			"Ouput2Folder": {
+				"type": "string",
+				"defaultValue": "ouput2"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-21T11:31:01Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

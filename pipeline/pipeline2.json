@@ -1,0 +1,41 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipeline1",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"SourceFileName": {
+							"value": "@pipeline().parameters.SN",
+							"type": "Expression"
+						},
+						"DestinationFileName": {
+							"value": "@pipeline().parameters.FN",
+							"type": "Expression"
+						}
+					}
+				}
+			}
+		],
+		"parameters": {
+			"SN": {
+				"type": "string"
+			},
+			"FN": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-21T10:16:08Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

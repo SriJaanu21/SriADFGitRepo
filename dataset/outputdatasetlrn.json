@@ -1,0 +1,28 @@
+{
+	"name": "outputdatasetlrn",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedservericelrn",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DFN": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().DFN",
+					"type": "Expression"
+				},
+				"folderPath": "ouput",
+				"container": "adfcntlrn"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

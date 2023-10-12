@@ -1,0 +1,19 @@
+{
+	"name": "TriggerLrn",
+	"properties": {
+		"annotations": [
+			"FirstTrigger"
+		],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2023-09-18T06:25:00",
+				"timeZone": "Eastern Standard Time"
+			}
+		}
+	}
+}
