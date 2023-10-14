@@ -1,0 +1,9 @@
+{
+	"name": "sriadfdev",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2b6564b6-6880-4711-bf2e-92b9a986a9cf",
+		"tenantId": "8efbb7bc-f368-4ed8-9b24-ba11d9f07bad"
+	}
+}
